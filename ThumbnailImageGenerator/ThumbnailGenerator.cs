@@ -7,7 +7,7 @@ namespace ThumbnailImageGenerator
     public class ThumbnailGenerator
     {
         [FunctionName("generate")]
-        public void Run([BlobTrigger("profileimages/{name}", Connection = "BlobStorageConnection")]Stream image, [Blob("thumbnailimages/thumbnail-{name}", FileAccess.Write, Connection = "BlobStorageConnection")] Stream thumbnail)
+        public static void Run([BlobTrigger("profileimages/{name}", Connection = "BlobStorageConnection")] Stream image, [Blob("thumbnailimages/thumbnail-{name}", FileAccess.Write, Connection = "BlobStorageConnection")] Stream thumbnail)
         {
             byte[] imageBytes;
 
